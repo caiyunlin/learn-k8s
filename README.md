@@ -23,11 +23,26 @@ kubeadm join 192.168.0.18:6443 --token prlt1h.1vylyoo4rpsrqcjb \
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/application/nginx-app.yaml
 ```
 
-### Deploy hello-world nginx pod
+### 1. Deploy single nginx-pod
 ```bash
 # deploy nginx pod
 kubectl apply -f https://raw.githubusercontent.com/caiyunlin/learn-k8s/refs/heads/main/src/01_nginx_pod.yaml
+# query pods information, you should see the 'nginx-pod' is running
+kubectl get pods 
+```
 
+### 2. Deploy nginx-deployment with 3 replicas
+```bash
+# deploy nginx pod
+kubectl apply -f https://raw.githubusercontent.com/caiyunlin/learn-k8s/refs/heads/main/src/02_nginx_deployment.yaml
+# query pods information, you should see the 'nginx-pod' is running
+kubectl get pods 
+```
+
+### 3. Deploy nginx-service 
+```bash
+# deploy nginx pod
+kubectl apply -f https://raw.githubusercontent.com/caiyunlin/learn-k8s/refs/heads/main/src/02_nginx_service.yaml
 # query pods information, you should see the 'nginx-pod' is running
 kubectl get pods 
 ```
