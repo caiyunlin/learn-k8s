@@ -42,7 +42,7 @@ kubectl get pods
 ### 3. Deploy nginx-service 
 ```bash
 # deploy nginx pod
-kubectl apply -f https://raw.githubusercontent.com/caiyunlin/learn-k8s/refs/heads/main/src/02_nginx_service.yaml
+kubectl apply -f https://raw.githubusercontent.com/caiyunlin/learn-k8s/refs/heads/main/src/03_nginx_service.yaml
 # query pods information, you should see the 'nginx-pod' is running
 kubectl get pods 
 ```
