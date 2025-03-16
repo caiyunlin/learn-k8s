@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: maxmem-pod
+  namespace: tenant-mem-limited
+spec:
+  containers:
+  - name: too-much-memory
+    image: nginx
+    resources:
+      requests:
+        memory: 300Mi

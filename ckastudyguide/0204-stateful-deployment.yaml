@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-statefuleset
+spec:
+  replicas: 3
+  serviceName: "nginx-service"
+  selector:
+    matchLabels:
+      app: vt-nginx
+  template:
+    metadata:
+      labels:
+        app: vt-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14
+          ports:
+            - containerPort: 80

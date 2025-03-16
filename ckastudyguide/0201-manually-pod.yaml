@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: manually-nginx-pod
+  labels:
+    app: nginx-frontend   # 与 Deployment 中的 selector 匹配
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14
+    ports:
+    - containerPort: 80
