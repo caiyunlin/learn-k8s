@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synergy-leverager
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: varlog
+            mountPath: /var/log
+      - name: sidecar
+        image: busybox:stable
+        command: ['/bin/sh', '-c' , 'tail -n+1 -f /var/log/synergy-leverager.log']
+        volumeMounts:
+          - name: varlog
+            mountPath: /var/log
+      volumes:
+        - name: varlog
+          emptyDir: {}
